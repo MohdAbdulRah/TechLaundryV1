@@ -1,0 +1,10 @@
+/frontend/.env
+/frontend/node_modules
+/backend/node_modules
+/backend/.env
+/AI/__pycache__
+/AI/ai/__pycache__
+/AI/laundry_vector_db
+/AI/.env
+/AI/best_fabric_model
+/AI/best_garment_model
