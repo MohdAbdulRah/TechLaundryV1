@@ -102,7 +102,10 @@ function ToggleButton({
 }) {
   return (
     <button
-      onClick={onClick}
+      onClick={(e) => {
+        e.stopPropagation();
+        onClick();
+      }}
       aria-label={expanded ? "Collapse card" : "Expand card"}
       style={{
         width: 30,
@@ -226,12 +229,9 @@ function DeliveryCard({ delivery }: { delivery: Delivery }) {
 
         {/* Toggle */}
         <ToggleButton
-          expanded={expanded}
-          onClick={(e) => {
-            e.stopPropagation();
-            setExpanded((v) => !v);
-          }}
-        />
+  expanded={expanded}
+  onClick={() => setExpanded((v) => !v)}
+/>
       </div>
 
       {/* ── Expanded Content ── */}

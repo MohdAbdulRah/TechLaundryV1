@@ -366,7 +366,10 @@ export default function ShopOwnerSignupPage() {
     });
 
     saveAuth(data); // save token so addShop request is authenticated
-
+    if (!form.shopLocation) {
+  setErrors(e => ({ ...e, shopLocation: 'Location required' }));
+  return;
+}
     // Step 2 — Create shop using the saved token
     await shopApi.addShop({
       name:     form.shopName.trim(),

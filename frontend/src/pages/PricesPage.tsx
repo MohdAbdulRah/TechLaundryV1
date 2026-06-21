@@ -311,7 +311,7 @@ interface PriceFormFieldsProps {
   errors: Partial<PriceForm>;
   loading: boolean;
   submitLabel: string;
-  categories: string[];
+  categories: Category[];
   onChange: (f: keyof PriceForm, v: string) => void;
   onSubmit: () => void;
   onCancel: () => void;
