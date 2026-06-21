@@ -35,15 +35,24 @@ app.include_router(ai_router)
 # LOAD MODELS
 # -----------------------------
 
-garment_classifier = pipeline(
-    "image-classification",
-    model="mohdabdulrahman510/best_garment_model"
-)
+garment_classifier = None
+fabric_classifier = None
 
-fabric_classifier = pipeline(
-    "image-classification",
-    model="mohdabdulrahman510/best_fabric_model"
-)
+
+def load_models():
+    global garment_classifier, fabric_classifier
+
+    if garment_classifier is None:
+        garment_classifier = pipeline(
+            "image-classification",
+            model="mohdabdulrahman510/best_garment_model"
+        )
+
+    if fabric_classifier is None:
+        fabric_classifier = pipeline(
+            "image-classification",
+            model="mohdabdulrahman510/best_fabric_model"
+        )
 
 # -----------------------------
 # API
@@ -86,7 +95,7 @@ FABRIC_LABELS = [
 @app.post("/api/predict/garment")
 async def predict(file: UploadFile = File(...)):
     print("Request received")
-
+    load_models() 
     image_bytes = await file.read()
 
     image = Image.open(
