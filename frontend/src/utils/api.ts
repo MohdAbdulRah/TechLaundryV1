@@ -54,6 +54,7 @@ export const authApi = {
         email: user.email,
         role: (jwtPayload?.role as UserRole) ?? 'user',  // ← pulled from JWT
         firstName : (jwtPayload?.firstName as string) ?? '',
+        lastName : (jwtPayload?.lastName as string)
       },
     };
   },
@@ -70,7 +71,8 @@ export const authApi = {
         username:  (jwtPayload?.username as string) ?? '',
         email:     (jwtPayload?.email as string)    ?? '',
         role:      (jwtPayload?.role as UserRole)   ?? 'user',
-        firstName: (jwtPayload?.firstName as string)    ?? ''
+        firstName: (jwtPayload?.firstName as string)    ?? '',
+        lastName : (jwtPayload?.lastName as string) ?? ''
       },
     };
   },
