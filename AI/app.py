@@ -8,7 +8,7 @@ from PIL import Image
 from ai.middleware import VectorDBMiddleware
 
 import io
-
+# uvicorn app:app --reload
 from pricing import get_price_range
 from ai.scheduler import start_scheduler
 
@@ -37,12 +37,12 @@ app.include_router(ai_router)
 
 garment_classifier = pipeline(
     "image-classification",
-    model="./best_garment_model"
+    model="mohdabdulrahman510/best_garment_model"
 )
 
 fabric_classifier = pipeline(
     "image-classification",
-    model="./best_fabric_model"
+    model="mohdabdulrahman510/best_fabric_model"
 )
 
 # -----------------------------
