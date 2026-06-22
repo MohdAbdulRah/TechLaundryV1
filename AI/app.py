@@ -43,17 +43,20 @@ def load_models():
     global garment_classifier, fabric_classifier
 
     if garment_classifier is None:
+        print("Loading garment model...")
         garment_classifier = pipeline(
             "image-classification",
             model="mohdabdulrahman510/best_garment_model"
         )
+        print("Garment model loaded")
 
     if fabric_classifier is None:
+        print("Loading fabric model...")
         fabric_classifier = pipeline(
             "image-classification",
             model="mohdabdulrahman510/best_fabric_model"
         )
-
+        print("Fabric model loaded")
 # -----------------------------
 # API
 # -----------------------------
